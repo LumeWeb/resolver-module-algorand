@@ -1,0 +1,33 @@
+{
+    "name": "@lumeweb/resolver-module-algorand",
+    "version": "0.1.0",
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+        "build-script": "tsc --project tsconfig.build.json && mv dist-build/build.js dist-build/build.mjs",
+        "compile-module": "npm run build-script && node build.js",
+        "build": "tsc --project tsconfig.json",
+        "build-module": "npm run compile-module && node ./dist-build/build.mjs dev"
+    },
+    "dependencies": {
+        "@algonameservice/sdk": "^0.4.1",
+        "@lumeweb/kernel-libresolver": "https://github.com/LumeWeb/kernel-libresolver.git",
+        "@lumeweb/libresolver": "https://github.com/LumeWeb/libresolver.git",
+        "@lumeweb/pokt-rpc-endpoints": "https://github.com/LumeWeb/pokt-rpc-endpoints.git",
+        "algosdk": "^1.19.0"
+    },
+    "devDependencies": {
+        "@types/read": "^0.0.29",
+        "assert": "^2.0.0",
+        "crypto-browserify": "^3.12.0",
+        "esbuild": "^0.15.5",
+        "libskynetnode": "^0.1.4",
+        "os-browserify": "^0.3.0",
+        "read": "^1.0.7",
+        "stream-browserify": "^3.0.0"
+    },
+    "browser": {
+        "crypto": "crypto-browserify",
+        "stream": "stream-browserify"
+    }
+}
