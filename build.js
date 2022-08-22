@@ -7,6 +7,7 @@ esbuild.buildSync({
     bundle: true,
     legalComments: 'external',
     //  minify: true
+    inject: ["./polyfill.js"],
     tsconfig: "tsconfig.module.json",
     define: {
         'global': 'self'

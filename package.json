@@ -19,6 +19,7 @@
     "devDependencies": {
         "@types/read": "^0.0.29",
         "assert": "^2.0.0",
+        "buffer": "^6.0.3",
         "crypto-browserify": "^3.12.0",
         "esbuild": "^0.15.5",
         "libskynetnode": "^0.1.4",
