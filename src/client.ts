@@ -86,7 +86,7 @@ export default class Client extends algosdk.Algodv2 {
 
     // @ts-ignore
     return {
-      body,
+      body: body.data,
       text,
       ok: true,
     };

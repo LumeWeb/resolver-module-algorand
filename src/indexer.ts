@@ -67,7 +67,7 @@ export default class Indexer extends algosdk.Indexer {
 
     // @ts-ignore
     return {
-      body,
+      body: body.data,
       text,
       ok: true,
     };
