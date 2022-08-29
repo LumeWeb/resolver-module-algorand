@@ -26,15 +26,15 @@ function removeFalsyOrEmpty(obj: any) {
 
 // @ts-ignore
 export default class Indexer extends algosdk.Indexer {
-  private _force: boolean;
+  private _bypassCache: boolean;
   private _network: RpcNetwork;
   // @ts-ignore
   private c: Client;
 
-  constructor(network: RpcNetwork, force = false) {
+  constructor(network: RpcNetwork, bypassCache = false) {
     super("http://0.0.0.0");
     this._network = network;
-    this._force = force;
+    this._bypassCache = bypassCache;
     this.c = this;
   }
 
@@ -46,16 +46,16 @@ export default class Indexer extends algosdk.Indexer {
   ): Promise<HTTPClientResponse> {
     const format = getAcceptFormat(query);
     const fullHeaders = { ...requestHeaders, accept: format };
-    const req = this._network.query(
-      "algorand_rest_indexer_request",
-      "algorand-mainnet-indexer",
+    const req = this._network.wisdomQuery(
+      "indexer_request",
+      "algorand",
       {
         method: "GET",
         endpoint: relativePath,
         query: removeFalsyOrEmpty(query),
         fullHeaders,
       },
-      this._force
+      this._bypassCache
     );
 
     const body = await req.result;

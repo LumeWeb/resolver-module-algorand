@@ -44,15 +44,15 @@ function tolowerCaseKeys(o: any) {
 }
 
 export default class Client extends algosdk.Algodv2 {
-  private _force: boolean;
+  private _bypassCache: boolean;
   private _network: RpcNetwork;
   // @ts-ignore
   private c: Client;
 
-  constructor(network: RpcNetwork, force = false) {
+  constructor(network: RpcNetwork, bypassCache = false) {
     super("http://0.0.0.0");
     this._network = network;
-    this._force = force;
+    this._bypassCache = bypassCache;
     this.c = this;
   }
 
@@ -65,16 +65,16 @@ export default class Client extends algosdk.Algodv2 {
       "content-type": "application/json",
       ...tolowerCaseKeys(requestHeaders),
     };
-    const req = this._network.query(
-      "algorand_rest_request",
-      pocketNetworks["algorand-mainnet"],
+    const req = this._network.wisdomQuery(
+      "rest_request",
+      "algorand",
       {
         method: "POST",
         endpoint: relativePath,
         data: HTTPClient.serializeData(data, requestHeaders),
         fullHeaders,
       },
-      this._force
+      this._bypassCache
     );
 
     const body = await req.result;
