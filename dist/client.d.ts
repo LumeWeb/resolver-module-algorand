@@ -5,9 +5,9 @@ export declare function getAcceptFormat(
   query?: Query<"msgpack" | "json">
 ): "application/msgpack" | "application/json";
 export default class Client extends algosdk.Algodv2 {
-  private _force;
+  private _bypassCache;
   private _network;
   private c;
-  constructor(network: RpcNetwork, force?: boolean);
+  constructor(network: RpcNetwork, bypassCache?: boolean);
   private post;
 }

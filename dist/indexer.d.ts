@@ -1,9 +1,9 @@
 import algosdk from "algosdk";
 import { RpcNetwork } from "@lumeweb/dht-rpc-client";
 export default class Indexer extends algosdk.Indexer {
-  private _force;
+  private _bypassCache;
   private _network;
   private c;
-  constructor(network: RpcNetwork, force?: boolean);
+  constructor(network: RpcNetwork, bypassCache?: boolean);
   private get;
 }
