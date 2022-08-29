@@ -17,6 +17,7 @@
         "algosdk": "^1.19.0"
     },
     "devDependencies": {
+        "@lumeweb/relay-types": "https://github.com/LumeWeb/relay-types.git",
         "@types/read": "^0.0.29",
         "assert": "^2.0.0",
         "buffer": "^6.0.3",
