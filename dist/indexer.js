@@ -29,9 +29,12 @@ export default class Indexer extends algosdk.Indexer {
         }, this._bypassCache);
         const body = await req.result;
         const text = undefined;
+        if (body.error) {
+            throw new Error(body.error);
+        }
         // @ts-ignore
         return {
-            body,
+            body: body.data,
             text,
             ok: true,
         };
