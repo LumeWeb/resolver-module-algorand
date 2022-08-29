@@ -61,7 +61,6 @@ export default class Client extends algosdk.Algodv2 {
     data: any,
     requestHeaders?: Record<string, string>
   ): Promise<HTTPClientResponse> {
-    const format = getAcceptFormat();
     const fullHeaders = {
       "content-type": "application/json",
       ...tolowerCaseKeys(requestHeaders),
